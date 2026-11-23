@@ -1,0 +1,16 @@
+{
+  "name": "engineering-foundations",
+  "owner": {
+    "name": "Tejas DC"
+  },
+  "metadata": {
+    "description": "Six agent skills for building software on solid foundations: architecture method, state shapes, protocol design, one source of truth, observability and review levels."
+  },
+  "plugins": [
+    {
+      "name": "engineering-foundations",
+      "source": "./",
+      "description": "Six agent skills for building software on solid foundations: architecture method, state shapes, protocol design, one source of truth, observability and review levels."
+    }
+  ]
+}

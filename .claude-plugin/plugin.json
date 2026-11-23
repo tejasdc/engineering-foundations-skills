@@ -1,0 +1,14 @@
+{
+  "name": "engineering-foundations",
+  "description": "Six agent skills for building software on solid foundations: architecture method, state shapes, protocol design, one source of truth, observability and review levels.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tejas DC"
+  },
+  "repository": "https://github.com/tejasdc/engineering-foundations-skills",
+  "keywords": [
+    "architecture",
+    "design",
+    "skills"
+  ]
+}
