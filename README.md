@@ -15,6 +15,10 @@ They came out of a lot of real building with agents, and most of the rules exist
 | [application-observability](skills/application-observability/SKILL.md) | Building something that runs on its own, or debugging something that did | Logs, metrics and health checks that let you (or an agent) tell what actually happened. |
 | [review-gates](skills/review-gates/SKILL.md) | Deciding how much review a change needs | Three review levels matched to risk, so small changes ship fast and risky ones get a real second look. |
 
+## A starter system prompt
+
+[system-prompt.md](system-prompt.md) is a general version of the global instructions these skills grew up alongside: working principles like verifying before claiming done, finding the invariant instead of adding branches, matching review to risk, and git safety. It is a menu, not a file to paste whole. Ask your coding agent to read it, ask you how you work, and copy only the sections that fit into your global instructions (`~/.claude/CLAUDE.md` or `~/.codex/AGENTS.md`).
+
 ## Installing
 
 Easiest: ask your coding agent to install `tejasdc/engineering-foundations-skills` for you.
