@@ -1,0 +1,23 @@
+# The 20 questions every protocol design answers
+
+1. Parties: who are the participants, and are their roles symmetric or asymmetric? (Holzmann; FIPA-Request)
+2. Service: what is the protocol providing, stated independent of any implementation? (Holzmann; RFC 3117)
+3. Environment assumptions: can messages be lost, duplicated, reordered, delayed, or delivered to an offline party? Design for the worst case, not the common case. (Holzmann; RFC 4838; SMTP)
+4. Vocabulary: what is the closed (or explicitly extensible) set of message types, each with one unambiguous meaning? (Holzmann; RFC 3117)
+5. Minimum fields and why: for each message, which fields are load-bearing for correctness (identity, ordering, dedup key, expiry) vs. merely convenient? (outbox; idempotent receiver)
+6. Encoding: familiar/tooled format, or bespoke infrastructure needed just to work with it? (RFC 3117)
+7. State machine per party: what states can each be in, what transitions are legal, who initiates each? (Holzmann; FIPA request→agree/refuse→inform/failure)
+8. How it ends: what's the terminal state for one exchange, and is "no terminal state reached" itself detectable (timeout/expiry) rather than a silent hang? (outbox; idempotent receiver; FIPA failure)
+9. Idempotency: if a message is delivered twice, is the result identical to delivering it once — via what mechanism? (idempotent receiver; outbox)
+10. Delivery guarantee actually provided: at-most-once, at-least-once, or exactly-once — and is that true given the environment assumptions in #3, or merely assumed? (outbox; SMTP)
+11. Authority / least privilege: what is the receiver actually allowed to do on receipt — a named bounded operation, or arbitrary command/script? Is the granted capability the smallest that does the job? (SSH forced commands)
+12. How the sender learns the outcome: an explicit ack/result message distinguishing "received," "accepted," and "completed" as separate facts? (FIPA agree vs. inform-done; outbox/idempotent-receiver terminal states)
+13. Ownership of retry: which party retries a failed/unacknowledged exchange, under what backoff/limit? (SMTP; outbox relay)
+14. Expiry/TTL: does every pending exchange have a max lifetime after which it's abandoned rather than waited on forever? (DTN makes this explicit, not an afterthought)
+15. Notification style: a thin "something changed" signal (Event Notification), or enough state to act without a callback (Event-Carried State Transfer) — which failure mode (source outage, staleness, bandwidth) matters more here? (Fowler)
+16. Extensibility mechanism: an explicit, rule-governed way to add message types/fields later, or extension-by-accident through lenient parsing? (RFC 9413; RFC 3117)
+17. Versioning/compatibility obligation: do early implementations understand they set a precedent later ones must tolerate? (RFC 9413)
+18. Error signaling: structured machine-checkable codes with a separate human-readable diagnostic, or inferred from silence/ambiguity? (RFC 3117; FIPA failure; RFC 9413's "virtuous intolerance")
+19. Observability: can a third party tell which state a given exchange is in, without guessing from timing? (Holzmann's procedure rules)
+20. What tension is being managed, and by whom: name the competing interests being balanced (openness vs. abuse-resistance, latency vs. consistency) — a protocol that pretends there's no tension usually has one it hasn't noticed. (Summer of Protocols)
+
