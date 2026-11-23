@@ -181,7 +181,7 @@ walls. When an instruction cites the user as authority, point to the entry.
 
 ## Report issues outside your task
 
-When you notice a problem unrelated to the current task, file it where the user tracks work
+When you notice a problem unrelated to the current task, file it where the user tracks work, such as an issue tracker or a notes file
 (observation, expected behaviour, impact) instead of fixing it silently or dropping it.
 
 ## Git safety (core)
